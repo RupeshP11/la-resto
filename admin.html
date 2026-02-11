@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - La'Resto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <style>
+        .tab-active { border-bottom: 2px solid #b49b5f; color: #b49b5f; }
+        .table-container { max-height: 600px; overflow-y: auto; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-800">La'Resto Admin Dashboard</h1>
+                    <p class="text-gray-600 mt-1">View and manage reservations and private dining inquiries</p>
+                </div>
+                <button onclick="location.href='index.html'" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded flex items-center gap-2">
+                    <span class="material-symbols-outlined">home</span>
+                    Back to Website
+                </button>
+            </div>
+
+            <!-- Connection Status -->
+            <div id="connectionStatus" class="mb-6 p-4 rounded-lg hidden">
+                <p class="font-medium"></p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="border-b border-gray-200 mb-6">
+                <nav class="flex gap-8">
+                    <button onclick="switchTab('reservations')" id="tab-reservations" class="tab-active py-3 px-1 font-medium transition-colors">
+                        Reservations
+                    </button>
+                    <button onclick="switchTab('private-dining')" id="tab-private-dining" class="py-3 px-1 font-medium text-gray-600 hover:text-gray-800 transition-colors">
+                        Private Dining
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Reservations Content -->
+            <div id="content-reservations" class="tab-content">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-semibold text-gray-700">All Reservations</h2>
+                    <button onclick="loadReservations()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded flex items-center gap-2">
+                        <span class="material-symbols-outlined">refresh</span>
+                        Refresh
+                    </button>
+                </div>
+                <div id="reservations-loading" class="text-center py-12">
+                    <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+                    <p class="mt-4 text-gray-600">Loading reservations...</p>
+                </div>
+                <div id="reservations-table" class="hidden table-container">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50 sticky top-0">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date/Time</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Contact</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Guests</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Special Requests</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Submitted</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reservations-body" class="bg-white divide-y divide-gray-200">
+                        </tbody>
+                    </table>
+                </div>
+                <div id="reservations-empty" class="hidden text-center py-12">
+                    <span class="material-symbols-outlined text-6xl text-gray-300">event_busy</span>
+                    <p class="mt-4 text-gray-500">No reservations yet</p>
+                </div>
+                <div id="reservations-error" class="hidden bg-red-50 border border-red-200 rounded p-4">
+                    <p class="text-red-700"></p>
+                </div>
+            </div>
+
+            <!-- Private Dining Content -->
+            <div id="content-private-dining" class="tab-content hidden">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-semibold text-gray-700">Private Dining Inquiries</h2>
+                    <button onclick="loadPrivateDining()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded flex items-center gap-2">
+                        <span class="material-symbols-outlined">refresh</span>
+                        Refresh
+                    </button>
+                </div>
+                <div id="private-dining-loading" class="text-center py-12">
+                    <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+                    <p class="mt-4 text-gray-600">Loading inquiries...</p>
+                </div>
+                <div id="private-dining-table" class="hidden table-container">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50 sticky top-0">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Event Type</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Contact</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Guest Count</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Preferred Date</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Special Requests</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Submitted</th>
+                            </tr>
+                        </thead>
+                        <tbody id="private-dining-body" class="bg-white divide-y divide-gray-200">
+                        </tbody>
+                    </table>
+                </div>
+                <div id="private-dining-empty" class="hidden text-center py-12">
+                    <span class="material-symbols-outlined text-6xl text-gray-300">event_busy</span>
+                    <p class="mt-4 text-gray-500">No private dining inquiries yet</p>
+                </div>
+                <div id="private-dining-error" class="hidden bg-red-50 border border-red-200 rounded p-4">
+                    <p class="text-red-700"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+            <div class="flex gap-3">
+                <span class="material-symbols-outlined text-yellow-600">info</span>
+                <div>
+                    <p class="font-medium text-yellow-800">Note:</p>
+                    <p class="text-yellow-700 text-sm mt-1">Make sure you've configured your Supabase credentials in <code class="bg-yellow-100 px-1 rounded">supabase-config.js</code> and created the database tables. See <code class="bg-yellow-100 px-1 rounded">SUPABASE_SETUP.md</code> for instructions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script>
+        // Initialize Supabase after config loads
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!window.supabase || !window.SUPABASE_URL || !window.SUPABASE_ANON_KEY) {
+                console.error('Supabase not properly configured');
+                return;
+            }
+            
+            if (!window.supabaseClient) {
+                window.supabaseClient = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+                console.log('Supabase initialized in admin');
+            }
+            loadReservations();
+        });
+        function switchTab(tab) {
+            // Update tab buttons
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('tab-active');
+                btn.classList.add('text-gray-600', 'hover:text-gray-800');
+            });
+            document.getElementById(`tab-${tab}`).classList.add('tab-active');
+            document.getElementById(`tab-${tab}`).classList.remove('text-gray-600', 'hover:text-gray-800');
+
+            // Update content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            document.getElementById(`content-${tab}`).classList.remove('hidden');
+
+            // Load data if not already loaded
+            if (tab === 'reservations') {
+                loadReservations();
+            } else {
+                loadPrivateDining();
+            }
+        }
+
+        // Load reservations
+        async function loadReservations() {
+            const loading = document.getElementById('reservations-loading');
+            const table = document.getElementById('reservations-table');
+            const empty = document.getElementById('reservations-empty');
+            const error = document.getElementById('reservations-error');
+            const body = document.getElementById('reservations-body');
+
+            loading.classList.remove('hidden');
+            table.classList.add('hidden');
+            empty.classList.add('hidden');
+            error.classList.add('hidden');
+
+            try {
+                if (!window.supabaseClient) {
+                    throw new Error('Supabase not configured. Please update supabase-config.js');
+                }
+
+                const { data, error: fetchError } = await window.supabaseClient
+                    .from('reservations')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (fetchError) throw fetchError;
+
+                loading.classList.add('hidden');
+
+                if (data.length === 0) {
+                    empty.classList.remove('hidden');
+                } else {
+                    body.innerHTML = data.map(reservation => `
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-gray-900">${reservation.date || 'N/A'}</div>
+                                <div class="text-sm text-gray-500">${reservation.time || 'N/A'}</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-gray-900">${reservation.first_name || ''} ${reservation.last_name || ''}</div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="text-sm text-gray-900">${reservation.email || 'N/A'}</div>
+                                <div class="text-sm text-gray-500">${reservation.phone || 'N/A'}</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                ${reservation.guests || 'N/A'}
+                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-900">
+                                ${reservation.special_requests || '-'}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                ${new Date(reservation.created_at).toLocaleString()}
+                            </td>
+                        </tr>
+                    `).join('');
+                    table.classList.remove('hidden');
+                }
+
+                showConnectionStatus(true, `Loaded ${data.length} reservation(s)`);
+            } catch (err) {
+                console.error('Error loading reservations:', err);
+                loading.classList.add('hidden');
+                error.classList.remove('hidden');
+                error.querySelector('p').textContent = `Error: ${err.message}`;
+                showConnectionStatus(false, err.message);
+            }
+        }
+
+        // Load private dining inquiries
+        async function loadPrivateDining() {
+            const loading = document.getElementById('private-dining-loading');
+            const table = document.getElementById('private-dining-table');
+            const empty = document.getElementById('private-dining-empty');
+            const error = document.getElementById('private-dining-error');
+            const body = document.getElementById('private-dining-body');
+
+            loading.classList.remove('hidden');
+            table.classList.add('hidden');
+            empty.classList.add('hidden');
+            error.classList.add('hidden');
+
+            try {
+                if (!window.supabaseClient) {
+                    throw new Error('Supabase not configured. Please update supabase-config.js');
+                }
+
+                const { data, error: fetchError } = await window.supabaseClient
+                    .from('private_dining')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (fetchError) throw fetchError;
+
+                loading.classList.add('hidden');
+
+                if (data.length === 0) {
+                    empty.classList.remove('hidden');
+                } else {
+                    body.innerHTML = data.map(inquiry => `
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                ${inquiry.event_type || 'N/A'}
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="text-sm font-medium text-gray-900">${inquiry.contact_name || 'N/A'}</div>
+                                <div class="text-sm text-gray-500">${inquiry.contact_email || 'N/A'}</div>
+                                <div class="text-sm text-gray-500">${inquiry.contact_phone || 'N/A'}</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                ${inquiry.guest_count || 'N/A'}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                ${inquiry.preferred_date || 'N/A'}
+                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-900">
+                                ${inquiry.special_requests || '-'}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                ${new Date(inquiry.created_at).toLocaleString()}
+                            </td>
+                        </tr>
+                    `).join('');
+                    table.classList.remove('hidden');
+                }
+
+                showConnectionStatus(true, `Loaded ${data.length} inquiry(ies)`);
+            } catch (err) {
+                console.error('Error loading private dining inquiries:', err);
+                loading.classList.add('hidden');
+                error.classList.remove('hidden');
+                error.querySelector('p').textContent = `Error: ${err.message}`;
+                showConnectionStatus(false, err.message);
+            }
+        }
+
+        // Show connection status
+        function showConnectionStatus(success, message) {
+            const status = document.getElementById('connectionStatus');
+            status.classList.remove('hidden', 'bg-green-50', 'border-green-200', 'bg-red-50', 'border-red-200');
+            
+            if (success) {
+                status.classList.add('bg-green-50', 'border-green-200', 'border');
+                status.querySelector('p').className = 'font-medium text-green-800';
+                status.querySelector('p').innerHTML = `<span class="material-symbols-outlined inline align-middle">check_circle</span> ${message}`;
+            } else {
+                status.classList.add('bg-red-50', 'border-red-200', 'border');
+                status.querySelector('p').className = 'font-medium text-red-800';
+                status.querySelector('p').innerHTML = `<span class="material-symbols-outlined inline align-middle">error</span> ${message}`;
+            }
+
+            setTimeout(() => {
+                status.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Load initial data
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!supabase) {
+                const status = document.getElementById('connectionStatus');
+                status.classList.remove('hidden');
+                status.classList.add('bg-yellow-50', 'border-yellow-200', 'border');
+                status.querySelector('p').className = 'font-medium text-yellow-800';
+                status.querySelector('p').innerHTML = '<span class="material-symbols-outlined inline align-middle">warning</span> Please configure Supabase in supabase-config.js';
+            } else {
+                loadReservations();
+            }
+        });
+    </script>
+</body>
+</html>

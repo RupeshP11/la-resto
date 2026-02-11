@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Thank You - La'Resto | Fine European Dining</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b49b5f",
+                        "background-light": "#fcfaf7",
+                        "background-dark": "#1d1b15",
+                        "charcoal": "#1a1a1a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-charcoal dark:text-white body-inter transition-colors duration-300">
+    <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-charcoal/5 dark:border-white/10 px-6 md:px-20 lg:px-40 py-6 bg-background-light dark:bg-background-dark sticky top-0 z-50">
+            <div class="flex items-center gap-3 text-charcoal dark:text-white">
+                <a href="index.html" class="flex items-center gap-3 text-charcoal dark:text-white hover:text-primary transition-colors">
+                    <div class="size-6 text-primary">
+                        <span class="material-symbols-outlined text-3xl">restaurant</span>
+                    </div>
+                    <h2 class="text-xl font-bold tracking-tight serif-header uppercase">La'Resto</h2>
+                </a>
+            </div>
+            <div class="hidden md:flex flex-1 justify-end gap-10">
+                <nav class="flex items-center gap-10">
+                    <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="story.html">Our Story</a>
+                    <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="menu.html">Menu</a>
+                    <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="private-dining.html">Private Dining</a>
+                    <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="reservations.html">Reservations</a>
+                </nav>
+            </div>
+            <div class="md:hidden">
+                <span id="mobile-menu-toggle" class="material-symbols-outlined cursor-pointer">menu</span>
+            </div>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-background-light dark:bg-background-dark border-b border-charcoal/5 dark:border-white/10 px-6 py-4">
+            <nav class="flex flex-col gap-4">
+                <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="story.html">Our Story</a>
+                <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="menu.html">Menu</a>
+                <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="private-dining.html">Private Dining</a>
+                <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="reservations.html">Reservations</a>
+                <button onclick="window.location.href='reservations.html'" class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-none h-11 px-6 bg-primary text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-primary/90 transition-all shadow-sm mt-4">
+                    Book a Table
+                </button>
+            </nav>
+        </div>
+
+        <!-- Success Message -->
+        <main class="flex-1">
+            <section class="py-32 px-6 md:px-20 lg:px-40 bg-background-light dark:bg-background-dark">
+                <div class="max-w-2xl mx-auto text-center">
+                    <div class="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-8">
+                        <span class="material-symbols-outlined text-white text-4xl">check_circle</span>
+                    </div>
+                    <h1 class="serif-header text-4xl md:text-5xl font-medium text-charcoal dark:text-white mb-6">Thank You!</h1>
+                    <p class="text-xl text-charcoal/70 dark:text-gray-300 mb-8 leading-relaxed">
+                        Your reservation request has been submitted successfully.
+                    </p>
+                    <div class="bg-white dark:bg-charcoal p-8 rounded-lg shadow-lg mb-8">
+                        <h3 class="text-lg font-semibold text-charcoal dark:text-white mb-4">What happens next?</h3>
+                        <ul class="text-left text-charcoal/70 dark:text-gray-300 space-y-2">
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary text-sm">mail</span>
+                                You'll receive a confirmation email within a few minutes
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary text-sm">phone</span>
+                                Our concierge will contact you within 24 hours to confirm your reservation
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary text-sm">event_available</span>
+                                We'll send you a calendar invite once confirmed
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="index.html" class="bg-primary text-white px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] hover:bg-primary/90 transition-all shadow-lg">
+                            Return Home
+                        </a>
+                        <a href="reservations.html" class="border border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] transition-all">
+                            Make Another Reservation
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-background-light dark:bg-background-dark py-16 px-6 md:px-20 lg:px-40 border-t border-charcoal/10 dark:border-white/10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="flex flex-col gap-6">
+                    <a href="index.html" class="flex items-center gap-2 hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-primary">restaurant</span>
+                        <h2 class="serif-header text-xl uppercase font-bold text-charcoal dark:text-white">La'Resto</h2>
+                    </a>
+                    <p class="text-sm text-charcoal/60 dark:text-gray-400 leading-loose italic">
+                        The ultimate destination for discerning gourmands.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-primary">Contact</h4>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">11 Plaza, Old Street, 400001, Mumbai</p>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">+91 12 34 56 78 99</p>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">concierge@laresto.com</p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-primary">Hours</h4>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">Mon - Fri: 12:00 - 00:00</p>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">Sat - Sun: 17:00 - 01:00</p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-primary">Follow Us</h4>
+                    <div class="flex gap-4">
+                        <a class="text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-gray-500 hover:text-primary transition-colors" href="#">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-charcoal/10 dark:border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-gray-500">© 2026 La'Resto. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a class="text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-gray-500 hover:text-primary transition-colors" href="#">Privacy</a>
+                    <a class="text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-gray-500 hover:text-primary transition-colors" href="#">Terms</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="navbar.js"></script>
+</body>
+</html>

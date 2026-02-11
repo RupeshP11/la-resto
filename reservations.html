@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Reservations - La'Resto | Fine European Dining</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b49b5f",
+                        "background-light": "#fcfaf7",
+                        "background-dark": "#1d1b15",
+                        "charcoal": "#1a1a1a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-charcoal dark:text-white body-inter transition-colors duration-300">
+    <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-charcoal/5 dark:border-white/10 px-6 md:px-20 lg:px-40 py-6 bg-background-light dark:bg-background-dark sticky top-0 z-50">
+            <div class="flex items-center gap-3 text-charcoal dark:text-white">
+                <a href="index.html" class="flex items-center gap-3 text-charcoal dark:text-white hover:text-primary transition-colors">
+                    <div class="size-6 text-primary">
+                        <span class="material-symbols-outlined text-3xl">restaurant</span>
+                    </div>
+                    <h2 class="text-xl font-bold tracking-tight serif-header uppercase">La'Resto</h2>
+                </a>
+            </div>
+            <div class="hidden md:flex flex-1 justify-end gap-10">
+                <nav class="flex items-center gap-10">
+                    <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="story.html">Our Story</a>
+                    <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="menu.html">Menu</a>
+                    <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="private-dining.html">Private Dining</a>
+                    <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="reservations.html">Reservations</a>
+                </nav>
+                <button class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-none h-11 px-6 bg-primary text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-primary/90 transition-all shadow-sm">
+                    Book a Table
+                </button>
+            </div>
+            <div class="md:hidden">
+                <span id="mobile-menu-toggle" class="material-symbols-outlined cursor-pointer">menu</span>
+            </div>
+        </header>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-background-light dark:bg-background-dark border-b border-charcoal/5 dark:border-white/10 px-6 py-4">
+            <nav class="flex flex-col gap-4">
+                <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="story.html">Our Story</a>
+                <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="menu.html">Menu</a>
+                <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="private-dining.html">Private Dining</a>
+                <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="reservations.html">Reservations</a>
+                <button class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-none h-11 px-6 bg-primary text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-primary/90 transition-all shadow-sm mt-4">
+                    Book a Table
+                </button>
+            </nav>
+        </div>
+        <main class="flex flex-col">
+            <!-- Reservations Content -->
+            <section class="py-24 px-6 md:px-20 lg:px-40 bg-background-light dark:bg-background-dark">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-16">
+                        <span class="text-primary text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Secure Your Experience</span>
+                        <h1 class="serif-header text-4xl md:text-5xl font-medium text-charcoal dark:text-white">Make a Reservation</h1>
+                        <p class="text-charcoal/70 dark:text-gray-400 text-lg mt-6">Reserve your table for an unforgettable dining experience. We recommend booking in advance as our tables are highly sought after.</p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                        <div class="space-y-8">
+                            <div>
+                                <h2 class="serif-header text-2xl font-medium text-charcoal dark:text-white mb-4">Reservation Policies</h2>
+                                <ul class="space-y-3 text-charcoal/70 dark:text-gray-400">
+                                    <li class="flex items-start gap-3">
+                                        <span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+                                        <span>Reservations are held for 15 minutes past the confirmed time</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+                                        <span>Elegant attire required for all guests</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+                                        <span>Large parties (8+) may require a deposit</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+                                        <span>Cancellations must be made 24 hours in advance</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h2 class="serif-header text-2xl font-medium text-charcoal dark:text-white mb-4">Contact Information</h2>
+                                <div class="space-y-3 text-charcoal/70 dark:text-gray-400">
+                                    <p><strong>Phone:</strong> +33 12 34 56 78 99</p>
+                                    <p><strong>Email:</strong> concierge@laresto.com</p>
+                                    <p><strong>Address:</strong> 11 Plaza, Old Street, 400001, Mumbai</p>
+                                    <p><strong>Hours:</strong> Mon-Fri 12:00-00:00, Sat-Sun 17:00-01:00</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-charcoal dark:bg-black p-8 rounded-sm shadow-2xl">
+                            <h2 class="serif-header text-2xl font-medium text-white mb-8">Book Your Table</h2>
+                            <form name="reservation-full" method="POST" action="/" data-netlify="true" data-netlify-honeypot="bot-field" class="space-y-6" id="reservation-form">
+                                <input type="hidden" name="form-name" value="reservation-full" />
+                                <input type="hidden" name="_next" value="/thank-you.html" />
+                                <div style="display: none;">
+                                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="flex flex-col gap-2">
+                                        <label class="text-primary text-[10px] font-bold uppercase tracking-[0.2em]">First Name</label>
+                                        <input name="first-name" class="bg-transparent border-b border-white/20 text-white focus:border-primary focus:ring-0 py-3 text-sm pl-2 outline-none" type="text" required/>
+                                    </div>
+                                    <div class="flex flex-col gap-2">
+                                        <label class="text-primary text-[10px] font-bold uppercase tracking-[0.2em]">Last Name</label>
+                                        <input name="last-name" class="bg-transparent border-b border-white/20 text-white focus:border-primary focus:ring-0 py-3 text-sm pl-2 outline-none" type="text" required/>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-primary text-[10px] font-bold uppercase tracking-[0.2em]">Email</label>
+                                    <input name="email" class="bg-transparent border-b border-white/20 text-white focus:border-primary focus:ring-0 py-3 text-sm pl-2 outline-none" type="email" required/>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-primary text-[10px] font-bold uppercase tracking-[0.2em]">Phone</label>
+                                    <input name="phone" class="bg-transparent border-b border-white/20 text-white focus:border-primary focus:ring-0 py-3 text-sm pl-2 outline-none" type="tel" required/>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <div class="flex flex-col gap-2">
+                                        <label class="text-primary text-[10px] font-bold uppercase tracking-[0.2em]">Guests</label>
+                                        <select name="guests" class="bg-charcoal border-b border-white/20 text-white focus:border-primary focus:ring-0 py-3 text-sm pl-2 outline-none" required>
+                                            <option>1 Guest</option>
+                                            <option>2 Guests</option>
+                                            <option>3 Guests</option>
+                                            <option>4 Guests</option>
+                                            <option>5 Guests</option>
+                                            <option>6+ Guests</option>
+                                        </select>
+                                    </div>
+                                    <div class="flex flex-col gap-2">
+                                        <label class="text-primary text-[10px] font-bold uppercase tracking-[0.2em]">Date</label>
+                                        <input name="date" class="bg-transparent border-b border-white/20 text-white focus:border-primary focus:ring-0 py-3 text-sm pl-2 outline-none" type="date" required/>
+                                    </div>
+                                    <div class="flex flex-col gap-2">
+                                        <label class="text-primary text-[10px] font-bold uppercase tracking-[0.2em]">Time</label>
+                                        <select name="time" class="bg-charcoal border-b border-white/20 text-white focus:border-primary focus:ring-0 py-3 text-sm pl-2 outline-none max-h-40 overflow-y-auto" required>
+                                            <option>12:00</option>
+                                            <option>12:30</option>
+                                            <option>13:00</option>
+                                            <option>13:30</option>
+                                            <option>14:00</option>
+                                            <option>14:30</option>
+                                            <option>15:00</option>
+                                            <option>15:30</option>
+                                            <option>16:00</option>
+                                            <option>16:30</option>
+                                            <option>17:00</option>
+                                            <option>17:30</option>
+                                            <option>18:00</option>
+                                            <option>18:30</option>
+                                            <option>19:00</option>
+                                            <option>19:30</option>
+                                            <option>20:00</option>
+                                            <option>20:30</option>
+                                            <option>21:00</option>
+                                            <option>21:30</option>
+                                            <option>22:00</option>
+                                            <option>22:30</option>
+                                            <option>23:00</option>
+                                            <option>23:30</option>
+                                            <option>00:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label class="text-primary text-[10px] font-bold uppercase tracking-[0.2em]">Special Requests</label>
+                                    <textarea name="special-requests" class="bg-transparent border-b border-white/20 text-white focus:border-primary focus:ring-0 py-3 text-sm pl-2 outline-none resize-none" rows="3" placeholder="Dietary restrictions, celebrations, etc."></textarea>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <input name="terms-agreement" type="checkbox" id="terms" class="text-primary focus:ring-primary" required/>
+                                    <label for="terms" class="text-gray-300 text-xs">I agree to the reservation policies and terms</label>
+                                </div>
+                                <div class="pt-6">
+                                    <button type="submit" class="w-full bg-primary text-white py-5 px-10 text-xs font-black uppercase tracking-[0.3em] hover:brightness-110 transition-all shadow-xl">
+                                        Confirm Reservation
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer -->
+        <footer class="bg-background-light dark:bg-background-dark py-16 px-6 md:px-20 lg:px-40 border-t border-charcoal/10 dark:border-white/10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="flex flex-col gap-6">
+                    <a href="index.html" class="flex items-center gap-2 hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-primary">restaurant</span>
+                        <h2 class="serif-header text-xl uppercase font-bold text-charcoal dark:text-white">La'Resto</h2>
+                    </a>
+                    <p class="text-sm text-charcoal/60 dark:text-gray-400 leading-loose italic">
+                        The ultimate destination for discerning gourmands.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-primary">Contact</h4>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">11 Plaza, Old Street, 400001 Mumbai</p>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">+91 12 34 56 78 99</p>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">concierge@laresto.com</p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-primary">Hours</h4>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">Mon - Fri: 18:00 - 00:00</p>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">Sat - Sun: 17:00 - 01:00</p>
+                </div>
+                <div class="flex flex-col gap-6">
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-primary">Newsletter</h4>
+                    <div class="flex">
+                        <input class="bg-transparent border-b border-charcoal/20 dark:border-white/20 py-2 text-sm focus:outline-none w-full" placeholder="Your Email" type="email"/>
+                        <button class="material-symbols-outlined text-primary border-b border-charcoal/20 dark:border-white/20 px-2">send</button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-charcoal/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-gray-500">© 2024 La'Resto. All Rights Reserved.</p>
+                <div class="flex gap-8">
+                    <a class="text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-gray-500 hover:text-primary transition-colors" href="#">Privacy</a>
+                    <a class="text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-gray-500 hover:text-primary transition-colors" href="#">Terms</a>
+                    <a class="text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-gray-500 hover:text-primary transition-colors" href="#">Instagram</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="form-handler.js"></script>
+    <script src="navbar.js"></script>
+</body>
+</html>

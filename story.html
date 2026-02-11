@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Our Story - La'Resto | Fine European Dining</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b49b5f",
+                        "background-light": "#fcfaf7",
+                        "background-dark": "#1d1b15",
+                        "charcoal": "#1a1a1a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-charcoal dark:text-white body-inter transition-colors duration-300">
+    <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-charcoal/5 dark:border-white/10 px-6 md:px-20 lg:px-40 py-6 bg-background-light dark:bg-background-dark sticky top-0 z-50">
+            <div class="flex items-center gap-3 text-charcoal dark:text-white">
+                <a href="index.html" class="flex items-center gap-3 text-charcoal dark:text-white hover:text-primary transition-colors">
+                    <div class="size-6 text-primary">
+                        <span class="material-symbols-outlined text-3xl">restaurant</span>
+                    </div>
+                    <h2 class="text-xl font-bold tracking-tight serif-header uppercase">La'Resto</h2>
+                </a>
+            </div>
+            <div class="hidden md:flex flex-1 justify-end gap-10">
+                <nav class="flex items-center gap-10">
+                    <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="story.html">Our Story</a>
+                    <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="menu.html">Menu</a>
+                    <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="private-dining.html">Private Dining</a>
+                    <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="reservations.html">Reservations</a>
+                </nav>
+                <button onclick="window.location.href='reservations.html'" class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-none h-11 px-6 bg-primary text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-primary/90 transition-all shadow-sm">
+                    Book a Table
+                </button>
+            </div>
+            <div class="md:hidden">
+                <span id="mobile-menu-toggle" class="material-symbols-outlined cursor-pointer">menu</span>
+            </div>
+        </header>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-background-light dark:bg-background-dark border-b border-charcoal/5 dark:border-white/10 px-6 py-4">
+            <nav class="flex flex-col gap-4">
+                <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="story.html">Our Story</a>
+                <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="menu.html">Menu</a>
+                <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="private-dining.html">Private Dining</a>
+                <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="reservations.html">Reservations</a>
+                <button class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-none h-11 px-6 bg-primary text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-primary/90 transition-all shadow-sm mt-4">
+                    Book a Table
+                </button>
+            </nav>
+        </div>
+        <main class="flex flex-col">
+            <!-- Hero Section -->
+            <section class="relative py-32 px-6 md:px-20 lg:px-40 bg-cover bg-center bg-no-repeat" style='background-image: url("images/story-hero.jpg");'>
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="relative max-w-4xl mx-auto text-center text-white">
+                    <h1 class="serif-header text-5xl md:text-6xl font-medium mb-6">Our Story</h1>
+                    <p class="text-xl md:text-2xl leading-relaxed opacity-90">
+                        A culinary journey spanning three decades of excellence
+                    </p>
+                </div>
+            </section>
+
+            <!-- Our Story Content -->
+            <section class="py-24 px-6 md:px-20 lg:px-40 bg-background-light dark:bg-background-dark">
+                <div class="max-w-4xl mx-auto">
+                    <div class="space-y-16">
+                        <p class="text-charcoal/70 dark:text-gray-400 text-lg leading-loose text-center max-w-3xl mx-auto">
+                            For three decades, La'Resto has stood as a beacon of culinary excellence, blending authentic Indian flavors with contemporary European techniques. Our journey began with a vision to create unforgettable dining experiences that transcend cultural boundaries.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h3 class="serif-header text-2xl font-medium text-charcoal dark:text-white mb-6">The Beginning</h3>
+                                <p class="text-charcoal/70 dark:text-gray-400 leading-relaxed text-lg">
+                                    Founded in 1994 by Chef Antoine Moreau, La'Resto opened its doors with a vision to redefine fine dining. Drawing inspiration from the rich culinary heritage of India and Europe, we began as a small bistro that quickly gained recognition for our commitment to excellence and innovation.
+                                </p>
+                            </div>
+                            <div class="aspect-video bg-cover bg-center rounded-lg shadow-xl overflow-hidden">
+                                <img src="images/story-grid-1.jpg" alt="Elegant restaurant interior with warm lighting" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                            <div class="aspect-video bg-cover bg-center rounded-lg shadow-xl overflow-hidden order-2 md:order-1">
+                                <img src="images/story-grid-2.jpg" alt="Elegant fine dining setup showcasing culinary excellence" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="order-1 md:order-2">
+                                <h3 class="serif-header text-2xl font-medium text-charcoal dark:text-white mb-6">Culinary Excellence</h3>
+                                <p class="text-charcoal/70 dark:text-gray-400 leading-relaxed text-lg">
+                                    Our dedication to culinary artistry has been recognized with numerous accolades. We combine traditional Indian spices with contemporary European techniques, creating dishes that tell stories of heritage and innovation.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h3 class="serif-header text-2xl font-medium text-charcoal dark:text-white mb-6">Our Team</h3>
+                                <p class="text-charcoal/70 dark:text-gray-400 leading-relaxed text-lg">
+                                    Behind every exceptional dish is our passionate team of chefs, sommeliers, and service professionals. Each member brings years of experience and a commitment to creating memorable dining experiences for our guests.
+                                </p>
+                            </div>
+                            <div class="aspect-video bg-cover bg-center rounded-lg shadow-xl overflow-hidden">
+                                <img src="images/story-grid-1.jpg" alt="Professional chefs working in luxury European kitchen" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-20">
+                            <div class="max-w-4xl mx-auto mb-12">
+                                <h3 class="serif-header text-3xl font-medium text-charcoal dark:text-white mb-8">Our Philosophy</h3>
+                                <div class="relative">
+                                    <div class="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 rounded-lg"></div>
+                                    <blockquote class="relative text-charcoal/70 dark:text-gray-400 text-xl italic serif-header leading-relaxed p-8 bg-white/50 dark:bg-charcoal/30 rounded-lg border-l-4 border-primary">
+                                        "Cuisine is the bridge between heritage and innovation. We source only the rarest ingredients to craft moments that transcend the palate and create lasting memories."
+                                    </blockquote>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                                <div class="text-center">
+                                    <div class="w-20 h-20 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-3xl text-primary">restaurant</span>
+                                    </div>
+                                    <h4 class="font-semibold text-charcoal dark:text-white mb-2">Authentic Flavors</h4>
+                                    <p class="text-sm text-charcoal/60 dark:text-gray-400">Traditional recipes with modern twists</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-20 h-20 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-3xl text-primary">local_shipping</span>
+                                    </div>
+                                    <h4 class="font-semibold text-charcoal dark:text-white mb-2">Fresh Ingredients</h4>
+                                    <p class="text-sm text-charcoal/60 dark:text-gray-400">Sourced daily from local suppliers</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-20 h-20 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-3xl text-primary">groups</span>
+                                    </div>
+                                    <h4 class="font-semibold text-charcoal dark:text-white mb-2">Exceptional Service</h4>
+                                    <p class="text-sm text-charcoal/60 dark:text-gray-400">Personalized attention to every guest</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer -->
+        <footer class="bg-background-light dark:bg-background-dark py-16 px-6 md:px-20 lg:px-40 border-t border-charcoal/10 dark:border-white/10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="flex flex-col gap-6">
+                    <a href="index.html" class="flex items-center gap-2 hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-primary">restaurant</span>
+                        <h2 class="serif-header text-xl uppercase font-bold text-charcoal dark:text-white">La'Resto</h2>
+                    </a>
+                    <p class="text-sm text-charcoal/60 dark:text-gray-400 leading-loose italic">
+                        The ultimate destination for discerning gourmands.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-primary">Contact</h4>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">11 Plaza, Old Street, 400001 Mumbai</p>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">+91 12 34 56 78 99</p>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">concierge@laresto.com</p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-primary">Hours</h4>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">Mon - Fri: 18:00 - 00:00</p>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">Sat - Sun: 17:00 - 01:00</p>
+                </div>
+                <div class="flex flex-col gap-6">
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-primary">Newsletter</h4>
+                    <div class="flex">
+                        <input class="bg-transparent border-b border-charcoal/20 dark:border-white/20 py-2 text-sm focus:outline-none w-full" placeholder="Your Email" type="email"/>
+                        <button class="material-symbols-outlined text-primary border-b border-charcoal/20 dark:border-white/20 px-2">send</button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-charcoal/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-gray-500">© 2024 La'Resto. All Rights Reserved.</p>
+                <div class="flex gap-8">
+                    <a class="text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-gray-500 hover:text-primary transition-colors" href="#">Privacy</a>
+                    <a class="text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-gray-500 hover:text-primary transition-colors" href="#">Terms</a>
+                    <a class="text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-gray-500 hover:text-primary transition-colors" href="#">Instagram</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="navbar.js"></script>
+</body>
+</html>

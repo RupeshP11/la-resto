@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>La'Resto | Fine European Dining</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b49b5f",
+                        "background-light": "#fcfaf7", // Ivory
+                        "background-dark": "#1d1b15", // Charcoal
+                        "charcoal": "#1a1a1a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>La'Resto | Fine European Dining</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b49b5f",
+                        "background-light": "#fcfaf7", // Ivory
+                        "background-dark": "#1d1b15", // Charcoal
+                        "charcoal": "#1a1a1a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-charcoal dark:text-white body-inter transition-colors duration-300">
+    <!-- Navigation -->
+    <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-charcoal/5 dark:border-white/10 px-6 md:px-20 lg:px-40 py-6 bg-background-light dark:bg-background-dark sticky top-0 z-50">
+            <div class="flex items-center gap-3 text-charcoal dark:text-white">
+                <a href="index.html" class="flex items-center gap-3 text-charcoal dark:text-white hover:text-primary transition-colors">
+                    <div class="size-6 text-primary">
+                        <span class="material-symbols-outlined text-3xl">restaurant</span>
+                    </div>
+                    <h2 class="text-xl font-bold tracking-tight serif-header uppercase">La'Resto</h2>
+                </a>
+            </div>
+            <div class="hidden md:flex flex-1 justify-end gap-10">
+                <nav class="flex items-center gap-10">
+                    <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="story.html">Our Story</a>
+                    <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="menu.html">Menu</a>
+                    <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="private-dining.html">Private Dining</a>
+                    <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="reservations.html">Reservations</a>
+                </nav>
+                <button onclick="window.location.href='reservations.html'" type="button" class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-none h-11 px-6 bg-primary text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-primary/90 transition-all shadow-sm">
+                    Book a Table
+                </button>
+            </div>
+            <div class="md:hidden">
+                <span id="mobile-menu-toggle" class="material-symbols-outlined cursor-pointer">menu</span>
+            </div>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-background-light dark:bg-background-dark border-b border-charcoal/5 dark:border-white/10 px-6 py-4">
+            <nav class="flex flex-col gap-4">
+                <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="story.html">Our Story</a>
+                <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="menu.html">Menu</a>
+                <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="private-dining.html">Private Dining</a>
+                <a class="text-charcoal dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="reservations.html">Reservations</a>
+                <button onclick="window.location.href='reservations.html'" type="button" class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-none h-11 px-6 bg-primary text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-primary/90 transition-all shadow-sm mt-4">
+                    Book a Table
+                </button>
+            </nav>
+        </div>
+
+        <!-- Hero Section -->
+        <main class="flex flex-col">
+            <section class="relative h-[85vh] w-full overflow-hidden">
+                <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 scale-105" data-alt="Luxurious Parisian bistro interior with gold lighting" style='background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("images/hero-bistro.jpg");'>
+                </div>
+                <div class="relative h-full flex flex-col items-center justify-center text-center px-6">
+                    <span class="text-primary text-sm font-bold tracking-[0.4em] uppercase mb-4">Fine Dining Excellence</span>
+                    <h1 class="text-white text-5xl md:text-7xl font-medium serif-header mb-6 max-w-4xl leading-tight">
+                        Experience the Art of Parisian Elegance
+                    </h1>
+                    <p class="text-white/90 text-lg md:text-xl font-light max-w-2xl mb-10 italic serif-header">
+                        Sophisticated European gastronomy in a timeless atmosphere.
+                    </p>
+                    <button onclick="window.location.href='reservations.html'" class="min-w-[200px] border border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] transition-all duration-300 backdrop-blur-sm">
+                        Reserve Your Experience
+                    </button>
+                </div>
+            </section>
+
+            <!-- Philosophy Section (Minimalist) -->
+            <section class="py-24 px-6 md:px-20 lg:px-40 bg-background-light dark:bg-background-dark">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h3 class="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-8">The Philosophy</h3>
+                    <p class="serif-header text-3xl md:text-4xl lg:text-5xl text-charcoal dark:text-white leading-relaxed font-light italic">
+                        "Cuisine is the bridge between heritage and innovation. We source only the rarest ingredients to craft moments that transcend the palate."
+                    </p>
+                    <div class="mt-8 flex justify-center">
+                        <div class="h-px w-20 bg-primary/40"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Our Story Section -->
+            <section class="flex flex-col md:flex-row items-center gap-12 py-20 px-6 md:px-20 lg:px-40">
+                <div class="w-full md:w-1/2 flex flex-col gap-6">
+                    <h2 class="text-charcoal dark:text-white serif-header text-4xl md:text-5xl font-medium leading-tight">
+                        A Heritage of Mastery
+                    </h2>
+                    <p class="text-charcoal/70 dark:text-gray-400 text-lg leading-loose max-w-lg">
+                        For three decades, L'Éclat has stood as a beacon of European culinary tradition. Our journey began in the heart of Lyon, carrying the secrets of old-world techniques into the modern era.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8 mt-4">
+                        <div>
+                            <p class="text-primary text-2xl font-bold serif-header">1994</p>
+                            <p class="text-xs uppercase tracking-widest text-charcoal/50 dark:text-gray-500 mt-1">Established</p>
+                        </div>
+                        <div>
+                            <p class="text-primary text-2xl font-bold serif-header">3 Stars</p>
+                            <p class="text-xs uppercase tracking-widest text-charcoal/50 dark:text-gray-500 mt-1">Michelin Rated</p>
+                        </div>
+                    </div>
+                    <a class="text-charcoal dark:text-white text-sm font-bold uppercase tracking-widest flex items-center gap-2 group mt-4" href="story.html">
+                        Read Our Journey
+                        <span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+                <div class="w-full md:w-1/2 grid grid-cols-2 gap-4">
+                    <div class="space-y-4 pt-12">
+                        <div class="aspect-[3/4] rounded-sm bg-cover bg-center shadow-2xl" data-alt="Professional chef plating a delicate dish" style='background-image: url("images/chef-plating.jpg");'></div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="aspect-[3/4] rounded-sm bg-cover bg-center shadow-2xl" data-alt="Exquisite wine cellar with rare vintages" style='background-image: url("images/wine-cellar.jpg");'></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Signature Dishes -->
+            <section class="py-24 bg-charcoal text-white px-6 md:px-20 lg:px-40">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                    <div class="space-y-4">
+                        <span class="text-primary text-xs font-bold uppercase tracking-[0.4em]">Seasonal Selection</span>
+                        <h2 class="serif-header text-4xl md:text-5xl font-medium">Signature Dishes</h2>
+                    </div>
+                    <a href="menu.html" class="text-xs uppercase tracking-widest border-b border-primary pb-2 text-primary hover:text-white hover:border-white transition-all">View Full Menu</a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <!-- Item 1 -->
+                    <div class="group cursor-pointer">
+                        <div class="relative overflow-hidden aspect-[3/4] mb-6">
+                            <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500 z-10"></div>
+                            <img alt="" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Exotic poultry dish with blueberry infusion" src="images/menu-paneer-tikka.jpg"/>
+                        </div>
+                        <h4 class="serif-header text-2xl mb-2">Paneer Tikka</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Marinated cottage cheese skewers with spices, grilled to perfection.</p>
+                        <p class="text-primary font-bold serif-header text-lg">₹450</p>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="group cursor-pointer">
+                        <div class="relative overflow-hidden aspect-[3/4] mb-6">
+                            <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500 z-10"></div>
+                            <img alt="" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Creamy truffle soup in a ceramic bowl" src="images/menu-chicken-biryani.jpg"/>
+                        </div>
+                        <h4 class="serif-header text-2xl mb-2">Chicken Biryani</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Fragrant basmati rice with tender chicken, saffron, and boiled eggs.</p>
+                        <p class="text-primary font-bold serif-header text-lg">₹720</p>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="group cursor-pointer">
+                        <div class="relative overflow-hidden aspect-[3/4] mb-6">
+                            <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500 z-10"></div>
+                            <img alt="" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Artfully plated dessert with edible flowers" src="images/menu-ras-malai.jpg"/>
+                        </div>
+                        <h4 class="serif-header text-2xl mb-2">Ras Malai</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Soft cheese dumplings in sweetened cardamom syrup.</p>
+                        <p class="text-primary font-bold serif-header text-lg">₹280</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services -->
+            <section class="py-24 px-6 md:px-20 lg:px-40 bg-background-light dark:bg-background-dark">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div class="aspect-video md:aspect-square bg-cover bg-center rounded-sm" data-alt="Private dining room with candlelight" style='background-image: url("images/salon-prive.jpg");'></div>
+                    <div class="flex flex-col gap-8">
+                        <div>
+                            <span class="text-primary text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Bespoke Experiences</span>
+                            <h2 class="serif-header text-4xl font-medium text-charcoal dark:text-white">The Salon Privé</h2>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <span class="material-symbols-outlined text-primary">wine_bar</span>
+                                <div>
+                                    <h5 class="font-bold text-sm uppercase tracking-widest text-charcoal dark:text-white">Wine Pairing</h5>
+                                    <p class="text-sm text-charcoal/60 dark:text-gray-400 mt-1">Curated vintage selections from our master sommelier.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="material-symbols-outlined text-primary">groups</span>
+                                <div>
+                                    <h5 class="font-bold text-sm uppercase tracking-widest text-charcoal dark:text-white">Private Events</h5>
+                                    <p class="text-sm text-charcoal/60 dark:text-gray-400 mt-1">Exclusive use of our private terrace for up to 30 guests.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="material-symbols-outlined text-primary">skillet</span>
+                                <div>
+                                    <h5 class="font-bold text-sm uppercase tracking-widest text-charcoal dark:text-white">Chef's Table</h5>
+                                    <p class="text-sm text-charcoal/60 dark:text-gray-400 mt-1">A direct interaction with the culinary creative process.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="private-dining.html" class="mr-auto border-b border-primary text-charcoal dark:text-white text-xs font-bold uppercase tracking-[0.2em] pb-1 hover:text-primary transition-all">Enquire Now</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reservations Section -->
+            <section class="py-24 bg-background-light dark:bg-background-dark px-6 border-t border-charcoal/5 dark:border-white/10">
+                <div class="max-w-[960px] mx-auto bg-charcoal dark:bg-black p-8 md:p-16 rounded-sm shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+                    <div class="relative z-10 text-center mb-12">
+                        <h2 class="serif-header text-3xl md:text-5xl text-white font-medium mb-4">Secure Your Table</h2>
+                        <p class="text-gray-400 text-sm tracking-widest uppercase italic">Dress code: Elegant Attire Required</p>
+                    </div>
+                    <form name="reservation-quick" method="POST" action="/" data-netlify="true" class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10" id="quick-reservation-form">
+                        <input type="hidden" name="form-name" value="reservation-quick"/>
+                        <input type="hidden" name="_next" value="/thank-you.html"/>
+                        <div class="flex flex-col gap-2">
+                            <label class="text-primary text-[10px] font-bold uppercase tracking-[0.2em]">Guest Count</label>
+                            <select name="guest-count" class="bg-charcoal border-b border-white/20 text-white focus:border-primary focus:ring-0 py-3 text-sm pl-2 outline-none">
+                                <option> 1 Guest</option>
+                                <option> 2 Guests</option>
+                                <option> 3 Guests</option>
+                                <option> 4 Guests</option>
+                                <option> 5 Guests</option>
+                                <option> 6+ Guests</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label class="text-primary text-[10px] font-bold uppercase tracking-[0.2em]">Date</label>
+                            <input name="date" class="bg-transparent border-b border-white/20 text-white focus:border-primary focus:ring-0 py-3 text-sm pl-2 outline-none" type="date"/>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label class="text-primary text-[10px] font-bold uppercase tracking-[0.2em]">Time</label>
+                            <select name="time" class="bg-charcoal border-b border-white/20 text-white focus:border-primary focus:ring-0 py-3 text-sm pl-2 outline-none max-h-40 overflow-y-auto">
+                                <option>12:00</option>
+                                <option>12:30</option>
+                                <option>13:00</option>
+                                <option>13:30</option>
+                                <option>14:00</option>
+                                <option>14:30</option>
+                                <option>15:00</option>
+                                <option>15:30</option>
+                                <option>16:00</option>
+                                <option>16:30</option>
+                                <option>17:00</option>
+                                <option>17:30</option>
+                                <option>18:00</option>
+                                <option>18:30</option>
+                                <option>19:00</option>
+                                <option>19:30</option>
+                                <option>20:00</option>
+                                <option>20:30</option>
+                                <option>21:00</option>
+                                <option>21:30</option>
+                                <option>22:00</option>
+                                <option>22:30</option>
+                                <option>23:00</option>
+                                <option>23:30</option>
+                                <option>00:00</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label class="text-primary text-[10px] font-bold uppercase tracking-[0.2em]">Special Requests</label>
+                            <input name="special-requests" class="bg-transparent border-b border-white/20 text-white focus:border-primary focus:ring-0 py-3 text-sm pl-2 outline-none placeholder:text-gray-600" placeholder="Allergies, Birthdays..." type="text"/>
+                        </div>
+                        <div class="md:col-span-2 mt-8 flex justify-center">
+                            <button type="submit" class="w-full md:w-auto min-w-[300px] bg-primary text-white py-5 px-10 text-xs font-black uppercase tracking-[0.3em] hover:brightness-110 transition-all shadow-xl"> Confirm Reservation</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!-- Gallery Section -->
+        <section class="py-24 px-6 md:px-20 lg:px-40 bg-background-light dark:bg-background-dark">
+            <div class="text-center mb-16">
+                <span class="text-primary text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Our Ambiance</span>
+                <h2 class="serif-header text-4xl md:text-5xl font-medium text-charcoal dark:text-white">A Glimpse Inside</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <img alt="Fine dining restaurant ambiance" class="aspect-[4/3] object-cover rounded-sm shadow-lg" src="images/gallery-1.jpg"/>
+                <img alt="Elegant dining table setup" class="aspect-[4/3] object-cover rounded-sm shadow-lg" src="images/gallery-2.jpg"/>
+                <img alt="Restaurant interior lighting" class="aspect-[4/3] object-cover rounded-sm shadow-lg" src="images/gallery-3.jpg"/>
+                <img alt="Sophisticated dining room" class="aspect-[4/3] object-cover rounded-sm shadow-lg" src="images/gallery-4.jpg"/>
+                <img alt="Restaurant bar and seating" class="aspect-[4/3] object-cover rounded-sm shadow-lg" src="images/gallery-5.jpg"/>
+                <img alt="Fine dining restaurant view" class="aspect-[4/3] object-cover rounded-sm shadow-lg" src="images/gallery-6.jpg"/>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-24 bg-charcoal text-white px-6 md:px-20 lg:px-40">
+            <div class="text-center mb-16">
+                <span class="text-primary text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Guest Experiences</span>
+                <h2 class="serif-header text-4xl md:text-5xl font-medium">What Our Patrons Say</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div class="text-center">
+                    <p class="text-gray-300 italic mb-6">"An unforgettable culinary journey. Every dish was a masterpiece."</p>
+                    <p class="text-primary font-bold">- Jack Smith</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-300 italic mb-6">"The ambiance is as exquisite as the food. Truly a five-star experience."</p>
+                    <p class="text-primary font-bold">- Mary Johnson</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-300 italic mb-6">"La'Resto sets the standard for fine dining. Exceptional service and flavors."</p>
+                    <p class="text-primary font-bold">- Tony Stark</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-background-light dark:bg-background-dark py-16 px-6 md:px-20 lg:px-40 border-t border-charcoal/10 dark:border-white/10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="flex flex-col gap-6">
+                    <a href="index.html" class="flex items-center gap-2 hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-primary">restaurant</span>
+                        <h2 class="serif-header text-xl uppercase font-bold text-charcoal dark:text-white">La'Resto</h2>
+                    </a>
+                    <p class="text-sm text-charcoal/60 dark:text-gray-400 leading-loose italic">
+                        The ultimate destination for discerning gourmands.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-primary">Contact</h4>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">11 Plaza, Old Street, 400001 Mumbai</p>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">+91 12 34 56 78 99</p>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">concierge@laresto.com</p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-primary">Hours</h4>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">Mon - Fri: 12:00 - 00:00</p>
+                    <p class="text-sm text-charcoal/70 dark:text-gray-300">Sat - Sun: 17:00 - 01:00</p>
+                </div>
+                <div class="flex flex-col gap-6">
+                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-primary">Newsletter</h4>
+                    <div class="flex">
+                        <input class="bg-transparent border-b border-charcoal/20 dark:border-white/20 py-2 text-sm focus:outline-none w-full" placeholder="Your Email" type="email"/>
+                        <button class="material-symbols-outlined text-primary border-b border-charcoal/20 dark:border-white/20 px-2">send</button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-charcoal/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-gray-500">© 2024 La'Resto. All Rights Reserved.</p>
+                <div class="flex gap-8">
+                    <a class="text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-gray-500 hover:text-primary transition-colors" href="#">Privacy</a>
+                    <a class="text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-gray-500 hover:text-primary transition-colors" href="#">Terms</a>
+                    <a class="text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-gray-500 hover:text-primary transition-colors" href="#">Instagram</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="form-handler.js"></script>
+    <script src="navbar.js"></script>
+</body>
+</html>
